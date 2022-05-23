@@ -98,13 +98,13 @@ li {
     border-color: #fff;
          }
             @font-face {
-                font-family: 'NOTO';
+                font-family: 'Nanum Myeongjo', serif;
                 src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
                 font-weight: normal;
                 font-style: normal;}
 
     .container h1 {
-        font-family: 'NOTO';
+        font-family: 'Nanum Myeongjo', serif;
         text-transform: capitalize;
         position:absolute;
         bottom: 100%;
