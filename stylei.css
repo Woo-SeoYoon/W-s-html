@@ -84,7 +84,7 @@ li {
 }
 
 .container {
-    position: absolute;
+    position: relative;
     top: 180%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -98,13 +98,13 @@ li {
     border-color: #fff;
          }
             @font-face {
-                font-family: '국립박물관재단클래식L';
-                src: url(https://);
+                font-family: 'NOTO';
+                src: url(https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap);
                 font-weight: normal;
                 font-style: normal;}
 
     .container h1 {
-        font-family: '국립박물관재단클래식L';
+        font-family: 'NOTO';
         text-transform: capitalize;
         position:absolute;
         bottom: 100%;
