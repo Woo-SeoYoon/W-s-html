@@ -99,7 +99,7 @@ li {
          }
             @font-face {
                 font-family: 'NOTO';
-                src: url(https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap);
+                src: url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
                 font-weight: normal;
                 font-style: normal;}
 
