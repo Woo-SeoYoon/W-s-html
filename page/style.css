@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+
+*{
+    box-sizing: border-box;
+}
+
+
+
+#body {
+    font-family: "Trebuchet MS", Dotum, Arial;
+  margin: 0;
+  }
+
+#title{
+    margin: auto;
+}
+
+#Noze{
+    text-align:center
+}
+
+  #prof{
+      border-style: double;
+      width: 500px;
+      margin: auto;
+  }
+
+  #topMenu {height: 40px;
+    width: 1903px;} 
+    #topMenu ul li { 
+        list-style: none; 
+        color: white;
+        background-color: #dda0dd; 
+        float: left;
+        line-height: 40px; 
+        vertical-align: middle; 
+        text-align: center;} 
+        #topMenu .menuLink {
+            text-decoration:none; 
+            color: white;
+            display: block;  
+            width: 350px;
+            font-size: 19px; 
+            font-weight: bold; 
+            font-family: "Trebuchet MS", Dotum, Arial;} 
+            #topMenu .menuLink:hover {
+                color: #dda0dd;
+                background-color: #4d4d4d;}
+#woo{
+    margin-left: 10px;
+}
+
+#woo h1{
+    font-size: 100px;
+    font-weight: 700;
+    margin-top: 80px;
+
+}
+#seo{
+    margin-left: 30px;
+}
+#seo h1{
+    font-size: 80px;
+    font-weight: 600;
+    margin-top: 10px;
+
+}
+
+#yoon{
+    margin-left: 20px;
+}
+
+#yoon h1{
+    font-size: 100px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+#page{
+    margin-left: 20px;
+}
+
+#page h1{
+    font-size: 100px;
+    font-weight: 700;
+    margin-top: 10px;
+}
