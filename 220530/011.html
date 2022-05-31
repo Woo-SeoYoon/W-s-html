@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input box와 아이콘 겹치게 하기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa-search{
+            position: absolute;
+            left:8px;
+            top:5px;
+
+        }
+        .fa-keyboard-o{
+            position: absolute;
+            right: 8px;
+            top:5px;
+        }
+        .fa-microphone{
+            position: absolute;
+            right: 30px;
+            top:5px;
+        }
+        #cont1{
+            width:300px;
+            text-align: center;
+            position:relative;
+        }
+        input{
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont1">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input type="search" name="sear" id="a1">
+    <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+    <i class="fa fa-microphone" aria-hidden="true"></i>
+    </div>
+</body>
+</html>
