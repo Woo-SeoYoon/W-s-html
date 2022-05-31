@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;}
+
+#page{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top:12px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+}
+header a{
+    margin:15px;
+}
+#foot_lower{
+    display: flex;
+    justify-content: space-evenly;
+}
+.link_black{
+    text-decoration: none;
+    color:black;
+}
+.link_black:hover{
+    text-decoration: underline;
+}
+#icon1{
+    color:black;
+    width: 24px;
+}
+#logo{
+    display: flex;
+    justify-content: center;
+}
+#logbox{
+    background-color: #1a73e8;
+    margin: 0px 8px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    color:white;
+    font-size: 14px;
+    text-decoration: none;
+    width:80px;
+    height: 36px;
+}
+#logbox:hover{
+    background-color: #67a3f1;
+}
+#s-bar{
+    width:580px;
+    height: 45px;
+    position:relative;
+}
+#s-bar2{    
+    display: flex;
+    justify-content: center;
+}
+#s-bar input{
+    width:580px;
+    height: 45px;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+
+}
+.fa-search{
+    position:absolute;
+    left:10px;
+    top:17px;
+}
+.fa-keyboard-o{
+    position:absolute;
+    right:30px;
+    top:17px;
+}
+.fa-microphone{
+    position:absolute;
+    right: 10px;
+    top:17px;
+}
+#search{
+    text-align: center;
+}
+#search button{
+    height: 36px;
+    line-height: 36px;
+    margin:11px 4px;
+    font-size: 14px;
+    border:0px;
+    padding: 0px 7px;
+}
+#search button:hover{
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 2px lightgray;
+}
+#s-bar a{
+    color:black;
+    
+}
+
+#foot_upper{
+    padding:15px 30px;
+    font-size: 15px;
+    color:#70757A;
+    margin:0;
+}
+#foot_upper p{
+    margin:0;
+}
+#foot_lower{
+    padding:0px 20px;
+    height: 48px;
+}
+#foot_lower a{
+    padding: 15px;
+    font-size: 14px;
+    color:#70757A;
+}
