@@ -85,7 +85,7 @@ li {
 
 .container {
     position: relative;
-    top: 180%;
+    top: 250%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 820px;
