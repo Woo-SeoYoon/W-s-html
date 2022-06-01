@@ -117,10 +117,6 @@ p1{
     text-align: center;
 }
 
-tr{
-    border: 1px solid rgb(3, 219, 190);
-    
-}
 #table1{
     border: 1px solid rgb(3, 219, 190);
     border-collapse: collapse;
@@ -148,9 +144,12 @@ table tr:nth-child(odd) a{
 table tr:nth-child(even) a{
     color:green;
 }
-#table2, tr,td{
+#table2{
     border: 1px solid gray;
     border-collapse: collapse;
+}
+td{
+    border-bottom: 1px solid gray;  
 }
 #table2{
     background-color: white;
@@ -196,6 +195,9 @@ table tr:nth-child(even) a{
     width:18px;
     background-color: white;
     border:1px solid lightgray;
+}
+#buttondiv .icon:hover{
+    cursor: pointer;
 }
 form{
     height:20px;
