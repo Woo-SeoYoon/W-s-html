@@ -14,7 +14,7 @@ nav {
 }
 #navg{
     width:80%;
-   margin-left:60px;
+   margin-left:130px;
 }
 ul{
     display: inline-block;
@@ -60,17 +60,17 @@ form{
     margin-top:5px;
 }
 #banner{
-    width:725px;
-    height: 100px;
+    width:70%;
+    height: 80px;
     overflow: hidden;
-    margin: auto;
+    margin: 27px auto;
     border:1px solid lightgray;
     
 }
 #namup{
     width:60%;
     padding:10px;
-    margin: 10px 10px 0px 60px;
+    margin: 0px 10px 0px 130px;
     background-color: white;
     border: 1px solid lightgray;
 }
@@ -83,7 +83,8 @@ form{
 }
 #menubar{
     float:right;
-    margin:20px;
+    margin:12px 20px 0px 20px;
+    height: 20px;
 }
 .menu2 a{
     font-size: 13px;
@@ -105,5 +106,104 @@ p1{
     margin-top: 10px;
     font-size: 13px;
 }
+#recent{
+    float: right;
+    font-size: 12px;
+    margin:0px 30px 10px 5px;
+}
 
+#txtdiv{
+    font-size: 0.8em;
+    text-align: center;
+}
 
+tr{
+    border: 1px solid rgb(3, 219, 190);
+    
+}
+#table1{
+    border: 1px solid rgb(3, 219, 190);
+    border-collapse: collapse;
+    font-size: 0.85em;
+    width:100%
+    
+}
+#table1 tr td:nth-child(1){
+    background-color:rgb(3, 219, 190);
+
+}
+#table1 td{
+    padding: 2px;
+}
+table a{
+    text-decoration: none;
+    font-size: 12px;
+}
+table a:hover{
+    text-decoration: underline;
+}
+table tr:nth-child(odd) a{
+    color:blue;
+}
+table tr:nth-child(even) a{
+    color:green;
+}
+#table2, tr,td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+#table2{
+    background-color: white;
+    width:18%;
+    font-size: 16px;
+    float:right;
+    margin:20px 150px 0px 0px;
+    
+}
+#table2 td{
+    padding: 5px 2px 5px 10px;
+}
+
+#table2 td:nth-child(1){
+    font-size: 13px;
+    color:rgb(36, 90, 206);
+}
+#table2 td:nth-child(2){
+    font-size: 11px;
+    
+}
+#table2 tr:nth-child(1){
+    height: 30px;
+    
+}
+#table2 tr:nth-child(1) td:nth-child(1){
+    color:black;
+    font-size: 18px;
+    font-weight: bold;
+    padding:15px;
+}
+#buttondiv{
+    height: 24px;
+    width:300px;
+    float:right;
+    padding: 0;
+    margin:4px 1px 1px 1px;    
+}
+#buttondiv .icon{
+    margin:0px;
+    padding:0px;
+    height: 22px;
+    width:18px;
+    background-color: white;
+    border:1px solid lightgray;
+}
+form{
+    height:20px;
+    margin:0px;
+}
+#searchbox{
+    height:22px;
+    margin:0px;
+    width:220px;
+    border:1px solid lightgray;    
+}
