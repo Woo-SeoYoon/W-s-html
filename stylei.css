@@ -13,7 +13,7 @@ color: #fff;
     margin:  0 auto;
 }
 header{
-    background: pink;
+    background: rgb(255, 156, 239);
     text-align: center;
     margin-bottom: -90px;
 }
@@ -90,12 +90,12 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 820px;
-    background: rgba(104, 102, 102, 0.014);
+    background: rgb(185, 185, 185);
     box-shadow: 5px 5px 5px rgba(128, 124, 124, 0.377),
                 5px 5px 5px rgba(128, 124, 124, 0.377),
                 5px 5px 5px rgba(128, 124, 124, 0.377);
     border-radius: 20px;
-    color: #fff;
+    color: black;
     border-color: #fff;
          }
             @font-face {
@@ -185,3 +185,4 @@ li {
         }
     }
    
+
