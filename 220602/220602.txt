@@ -1,0 +1,51 @@
+
+
+
+SPOTIFY 클론코딩
+
+메인: <section>
+
+
+<footer>
+<dl>
+<dd>회사<dd>
+<dt>상세정보</dt>
+<dt>채용정보</dt>
+<dt>For the Record</dt>
+</dl>
+
+<dl>
+<dd>커뮤니티<dd>
+<dt>상세정보</dt>
+<dt>채용정보</dt>
+<dt>For the Record</dt>
+</dl>
+
+
+<dl>
+<dd>유용한 링크<dd>
+<dt>지원</dt>
+<dt>채용정보</dt>
+</dl>
+
+</footer>
+
+자바 스크립트
+   프로그래밍 언어
+   입력, 처리, 출력
+   입력과 출력은 웹 브라우저에 의존한다
+   자바스크립트는 웹브라우저를 조작할 수 있다
+
+
+Node.js. 
+   ~.js는 자바스크립트를 이용해 만들어진 제품이다.
+   웹브라우저없이 자바스크립트를 실행
+
+<자바스크립트버전>
+ES5
+ES6
+TS(Type Script)
+
+vue.js
+react.js
+

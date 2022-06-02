@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트는 웹브라우저를 조작할 수 있다</title>
+</head>
+<body>
+    <h1>브라우저 화면 조작하기</h1>
+    <p>Hello World</p>
+    <script>
+        //객체는 브라우저를 구성하는 부품이다.
+        //객체안에는 기능과 값으로 구성된다. (자동완성-기능:보라색 값:파란색) 
+        //기능:함수 , 값:속성
+        
+        //history
+        history.back();  //history 기능은 값 적어줄필요 ㄴㄴ
+        history.forward();
+        history.go();
+        //location
+        location.reload(); //location 은 <a>태그와 비슷함   reload 는 새로고침
+        location.href="http://www.naver.com" //href는 값 이기때문에 () X, ="" 으로 사용 
+        console.log(location.search);
+
+
+    </script>
+
+</body>
+</html>
