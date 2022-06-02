@@ -1,0 +1,164 @@
+*{
+    box-sizing: border-box;
+margin:0;
+padding: 0;}
+body{
+    background-color: black;
+}
+header{
+    height: 80px;
+    padding: 0px 70px;
+}
+#pink{
+    background-color: pink;
+    height: 800px;
+    padding:70px 70px;
+    
+}
+
+#pink h1{
+    font-size: 60px;
+    font-weight:900px;
+    text-align: center;
+    width:90%;
+    margin:0 auto;
+}
+#pink h3{
+    font-size: 24px;
+    text-align: center;
+    font-weight:normal;
+    margin:30px auto;
+    width:92%;
+}
+#logo{
+    height:13vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+li{
+    display: inline-block;
+    
+}
+li a:nth-child(-n+4){
+    color:white;
+    text-decoration: none;
+    margin:12px;
+    font-weight: bold;
+}
+li a:nth-child(n+4):nth-child(-n+5){
+    color:rgb(194, 194, 194);
+    text-decoration: none;
+    margin:12px;
+    font-weight: bold;
+}
+
+li a:hover{
+    cursor: pointer;
+    color:rgb(6, 255, 6);
+}
+#apple{
+    width:198px;
+    height: 78px;
+    margin-left:5px;
+}
+#google{
+    width:200px;
+    height: 75px;
+    margin-right:5px;
+}
+#buttondiv div{
+    vertical-align: bottom;    
+}
+#buttondiv{
+    line-height: 50px;
+    text-align: center;
+}
+#s1{
+    color:black;
+    font-size: 12px;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+#foot_logodiv{
+    width:15%;
+    float: left;
+    
+}
+dl a{
+    text-decoration: none;
+    color:white;
+}
+dl a:hover{
+    cursor: pointer;
+    color:rgb(6, 255, 6);
+}
+dd{
+    margin: 20px auto;
+}
+dt{
+    color:lightgray;
+    font-size: 12px;
+}
+dl{
+    display:inline-block;
+    vertical-align: top;
+    
+}
+#dl_div{
+    width:40%;
+    float:left;
+    display:flex;
+    justify-content: space-around;
+    
+}
+footer{
+    padding:20px;
+}
+#link_div{
+float:right;
+width:20%;
+}
+.fa{
+position:absolute;
+left:27%;
+top:27%;
+
+}
+
+
+#link_div a{
+    position:relative;
+    border-radius: 50%;
+    background-color: rgb(65, 65, 65);
+    color:white;
+    width:40px;
+    height: 40px;
+    display: inline-block;
+    margin:5px;
+}
+
+#link_div a:hover{
+    cursor: pointer;
+    color:rgb(6, 255, 6);
+}
+
+.footlink{
+    color:white;
+    font-size: 12px;
+    text-decoration: none;
+}
+.footlink:hover{
+    cursor: pointer;
+    color:rgb(6, 255, 6); 
+}
+#foot-lower li{
+display: inline-block;
+}
+
+#foot-lower{
+    margin-bottom:0px;
+    height: 20px;
+}
