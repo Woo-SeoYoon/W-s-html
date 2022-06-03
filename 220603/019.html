@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><span id="s1">83.25</span></div>
+    <div><span id="a1"></span></div>
+    <div><span id="s2">35</span></div>
+    <div><span id="a2"></span></div>
+
+
+    <script>
+        //83.25는 제곱미터다. 11번째줄에 몇평인지 출력
+        //35는 섭씨온도 13번째줄에 화씨온도를 출력
+
+        let z1=document.querySelector('#s1').innerHTML; 
+        let z2=document.querySelector('#s2').innerHTML;
+        let z3= parseInt(z1) 
+        let z4= parseInt(z2) 
+        let z5= z3*0.3025;
+        let z6= z4*9/5+32;
+
+        console.log(document.querySelector('#a1'));
+        target.innerHTML=z5;
+        console.log(document.querySelector('#a2'));
+        target.innerHTML=z6;
+
+
+    </script>
+</body>
+</html>

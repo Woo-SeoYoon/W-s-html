@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div span{
+            color: magenta;
+        }
+    </style>
+</head>
+<body>
+    <div>남학생의 숫자 <span id="boy">11</span></div>
+    <div>여학생의 숫자 <span id="girl">7</span></div>
+    <div>총인원<span id="target"></span></div>
+<script>
+    //총인원의 숫자를 12번째 줄 span에 출력하시오 
+    let boynum = document.querySelector('#boy').innerHTML; 
+    let girlnum =document.querySelector('#girl').innerHTML;
+    let num1=parseInt(boynum);
+    let num2=parseInt(girlnum);
+    let sum = num1 + num2;
+    console.log(document.querySelector('#target'));
+        target.innerHTML=sum + "명";
+</script>
+</body>
+</html>
