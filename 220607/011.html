@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target"></div>
+    <script>
+ const target = document.querySelector('#target');    //const target = document.getElementById('target');
+ target.style.color='red';
+ target.innerHTML='우리나라 좋은나라';
+ console.log(target.id);
+ console.log(typeof targetl);
+ const target1= document.querySelector('#target');
+ console.log(target1); //상태: null    - 이유: object 는 정상이며 존재함 &  가리키는 상대or변수가 없는상태
+ //리모콘(객체)은 정상인데 Tv(가리키는상대,변수)가 고장난상태: null 
+ console.log(typeof target1); 
+ //object 객체는 리모컨 ✨✨ 외워야됨 정말 중요함 
+ console.log(target1.id);
+    </script>
+    
+    <div id="target1"></div>
+
+<script>
+    const target = document.querySelector('#target1');
+    target1.style.color='black';
+    target1.innerHTML='우리나라 좋은나라';
+    console.log(target1.id);
+    console.log(typeof targetl);
+    const target1= document.querySelector('#targte1'); //코드가 여기서 잘못됨 (오타) but 오류안남, 오류는 사용할때 나게 되어있음
+    console.log(target1); 
+    console.log(typeof target1); 
+
+    console.log(target1.id); //여기서 에러표시남 , 31번째줄에서 답을 찾아야함 
+       </script>
+</body>
+</html>

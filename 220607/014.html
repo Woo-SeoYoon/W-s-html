@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var를 사용할 때 선언은 호이스팅(hoist)된다 (호이스팅: 유효범위내에서 최상단에 선언한다.)
+        console.log(a); //cannot access 'a' before initialization
+        console.log(b); //undefined : 변수는 존재하나 어떠한 값으로도 정해지지않은 상태
+        let a = 10;
+        var b = 20; //var b ; b=20;
+        /* var b;
+           console.log(b);
+           b=20; 
+        */
+
+    </script>
+</body>
+</html>
