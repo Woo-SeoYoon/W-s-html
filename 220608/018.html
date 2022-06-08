@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="value">
+    <button onclick="파이()">원의면적</button>
+    <div>원의넓이 : <span id="target"></span></div>
+    <script>
+       
+        
+        function 파이() {
+            let vv1 = document.querySelector('#value').value;     //아이디 value에서 받은 입력값을 끄집어내와서 변수걸기 
+            console.log(vv1**2*Math.PI);                                    //    입력값 제곱해서 확인하기 (안해도됨)
+            let vv2 = vv1**2*Math.PI;                                       //    제곱값에 변수주기 (해야됨)
+            document.querySelector('#target').innerHTML=vv2;        //입력값을 아이디 target에 표시하기 
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    첫번째값:<input type="text" id="value1">
+    두번쨰값:<input type="text" id="value2">
+    <button onclick="더해()">더하기</button>
+    <div>덧셈 결과 <span id="result"></span></div>
+
+    <script>
+        function 더해(){
+            let vv1 = document.querySelector('#value1').value;
+            let vv2 = document.querySelector('#value2').value;
+            let vv3 = parseInt(vv1) + parseInt(vv2);
+            console.log(vv3);
+            document.querySelector('#result').innerHTML=vv3;
+        }
+    </script>
+</body>
+</html>
