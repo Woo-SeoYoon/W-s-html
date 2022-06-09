@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바전구 버튼1개구현</title>
+</head>
+<body>
+    <input type="button" value="on/off" onclick="온오프()">
+    <img id="image1" src="pic_bulboff.gif">
+    <script>
+       let onn = true;
+
+       function 온오프(){
+           if(onn==true){
+               document.querySelector('#image1').src="pic_bulbon.gif";
+               onn = false;
+           } else if(onn==false){
+                document.querySelector('#image1').src="pic_bulboff.gif";
+               onn = true;
+           }
+       }
+    </script>
+</body>
+</html>

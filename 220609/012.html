@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select  id="fruits">
+        <option >사과</option>
+        <option >바나나</option>
+        <option >수박</option>
+   </select>
+   <button onclick="showValue()">추가</button>  <!--똑같은 항목을 선택했을시에도 콘솔창에 표시되게 하려면 버튼을 따로 빼서 이벤트를 줘야함(방안1)-->
+    
+    <script>
+          const ar=[];
+          let index = 0; 
+       
+          function showValue() {
+          const fruits = document.querySelector('#fruits').value;       
+          ar[index]=fruits;
+          index++;
+          console.log(ar);
+          //index값이 증가하지않음 
+}
+
+
+
+/*function showValue2() {
+          const fruits = document.querySelector('#fruits').value;             // 문제: index값이 증가하지않음  
+          const ar=[];                                                        //해결: 로컬변수를 글로벌 변수로 빼기 (위내용참고) 
+          let index = 0;         
+          ar[index]=fruits;
+          index++;
+          console.log(ar);
+         
+}*/
+    </script>
+</body>
+</html>

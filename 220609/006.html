@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전구 양쪽버튼으로 만들기</title>
+</head>
+<body onload="init()">
+    <button onclick="bulbon()">불을 켭니당</button>
+    <img id="target">
+    <button onclick="bulboff()">불을 끕니당</button>
+    <script>
+        function init(){
+            document.querySelector('#target').src="pic_bulboff.gif";
+        }
+        function bulbon(){
+            document.querySelector('#target').src="pic_bulbon.gif";
+        }
+        function bulboff(){
+            document.querySelector('#target').src="pic_bulboff.gif";
+        }
+    </script>
+</body>
+</html>

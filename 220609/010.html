@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열VS객체</title>
+</head>
+<body>
+    <!-- 
+        const ar = []   ; 배열 : 값들의 집합
+        const obj = {}  ; 객체 : 관련있는 항목들
+        ------------------------
+        const ar = [75,80,155];   
+        const obj = {
+            kor:75,
+            eng:80,
+            tot:155
+        }; 
+    -->
+    
+
+    <script>
+        //객체나 배열안의 값은 무조건 const 로 먹이기 (오류뜨면 let으로 바꾸자)
+        const ar = [55,66,77]; //배열은 1번이 아닌 0번째부터 계산함 ** 엄청중요함 
+        const obj = {kor:55, eng:66};
+        console.log(obj.kor);
+        console.log(ar[0]);
+        console.log(ar[1]);
+        console.log(ar[2]);
+        ar[3] = 100;
+        ar[4] = 75;     //배열 안의 값 추가하기 가능
+        console.log(ar[3]); 
+        obj.eng = 100;   // 객체 안의 값 바꾸기 가능
+        console.log(obj.eng);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    <img id="sajin">
+    <button onclick="lightOnn()">버튼</button>
+    
+    <!--
+        화면이 로딩되면
+        https://www.w3schools.com/js/pic_bulboff.gif
+    -->
+<script>
+    // document.querySelector('#sajin').src="봄.jpg";
+    function init(){
+    document.querySelector('#sajin').src="pic_bulboff.gif";
+    }
+    function lightOnn(){
+    document.querySelector('#sajin').src="pic_bulbon.gif";    
+    }       
+
+</script>
+
+
+</body>
+</html>
