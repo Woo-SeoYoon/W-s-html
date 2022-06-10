@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 2항 연산자</h1>
+    <p> 산술연산자 : + , - , * , / , % </p>
+    <!--html entity : 특수문자-->
+    <p> 조건연산자 : > , >= , &lt; , &lt;= , == , === , != , !==</p>
+    <p> 논리연산자 : && ,  ||</p>
+    <script>
+        const a = '5';
+        const b = 5;
+        // ==, != 는 타입고려X   비교함
+        //===, !== 는 타입을 고려하여 비교함
+
+        const p = null, q = null;
+        const x = undefined , y = undefined;
+        // undefined, null 은 조건연산자로 비교할 수 있다
+        console.log(p==q);   //true
+        console.log(p===q);  //true
+        console.log(x==y);   //true
+        console.log(x===y);  //true
+
+        //객체는 비교불가능하다 (비교는 의미가없음) : 객체는 비교시 무조건 false 나옴 
+        const obj1 = {irum:'홍길동'};
+        const obj2 = {irum:'홍길동'};
+        console.log(obj1==obj2);   //무조건 false 가 나옴  객체값을 비교하는 게 아니라 객체자체를 비교함 
+        console.log(obj1===obj2);  //무조건 false 가 나옴  객체값을 비교하는 게 아니라 객체자체를 비교함 
+
+       //NaN은 비교불가능하다  : NaN 은 isNaN으로 비교한다
+        const m = 'hello'*5;
+        console.log(m);
+        console.log(m===NaN);
+        console.log(m!==NaN);
+        console.log(isNaN(m));
+        console.log(isNaN(15));
+
+
+
+    </script>
+</body>
+</html>

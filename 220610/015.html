@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  placeholder="국어성적을 입력하세요" id="국어box" oninput="검증()">
+    <input type="text"  placeholder="영어성적을 입력하세요" id="영어box">
+    <button onclick="avr1()">입력</button>
+<script>
+        const kor = document.querySelector('#국어box');
+        const eng = document.querySelector('#영어box');
+
+    function avr1(){
+        const avrr = (parseInt(kor.value) + parseInt(eng.value)) / 2 ;
+        if(avrr>=90){
+            alert('우수');
+        }else if(avrr>=70){
+            alert('통과');
+        }else{
+            alert('재시험');
+            }
+        }
+
+        /*국어box.value="";  값입력받고 지우기
+        국어box.focus();   포커스넣기
+        영어box.value="";  값입력받고 지우기
+        영어box.focus();   포커스넣기*/
+</script>
+</body>
+</html>

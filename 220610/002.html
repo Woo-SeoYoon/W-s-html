@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //75, 80, 90 의 값을 가지는 배열을 선언하시오
+        //그 배열이 90이라는 값을 가졌는지 출력하시오(true)
+
+        const ar=[75, 80, 90];
+        console.log(ar.indexOf(90));    //요소가 위치한 순서가 나옴  결과는 : 2 
+        console.log(ar.indexOf(100));   //없을 경우 결과: -1 (false)
+        console.log(ar.includes(90));   // includes 함수는 boolean값으로 나옴 
+        console.log(ar.includes(100));
+
+
+        /*
+            includes()
+            arr.includes(valueToFind[, fromIndex])
+            includes() 함수는 배열이 특정값을 포함하고 있는지의 여부를 boolean 값으로 반환합니다.
+             
+             파라미터 
+            valueToFind
+            찾으려는 값
+             
+            fromIndex
+            검색을 시작할 index
+            기본값은 0
+            음수가 입력되면 arr.length+fromIndex로 계산
+             
+             리턴값 
+            배열이 valueToFind 값을 포함하고 있는지의 여부(boolean)
+            참고사이트 | 
+            https://hianna.tistory.com/403
+        */
+
+    </script>
+</body>
+</html>

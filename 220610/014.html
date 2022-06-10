@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="input1">
+    <select id="op">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text"  id="input2">
+<span>=</span>
+<button onclick="calcul()">입력</button>
+<input type="text"  id="result" disabled>
+
+<script>
+    function calcul() {
+        const cal1 = document.querySelector('#input1');
+        const cal2 = document.querySelector('#input2');
+        const op = document.querySelector('#op');
+        const result = document.querySelector('#result');
+
+     const ccal1 = parseInt(cal1.value);
+     const ccal2 = parseInt(cal2.value);
+
+     let calcResult;      //★★★★★ 결과칸에 집어넣을 값을 위해 변수 만들어줘야함  if문 바깥에서 변수선언
+
+     if(op.value==="+"){
+        calcResult = ccal1 + ccal2;
+     }else if(op.value==="-"){
+        calcResult = ccal1 - ccal2;
+     }else if(op.value==="*"){
+        calcResult = ccal1 * ccal2;
+     } else{
+        calcResult = ccal1 / ccal2;
+     }
+    result.value = calcResult;
+    }
+</script>
+
+
+</body>
+</html>

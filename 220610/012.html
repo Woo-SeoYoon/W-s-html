@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--키를 입력받아 적정체중을 계산하여 적정체중인지 출력 -->
+    <input type="text"  placeholder="키를 입력하세요"  id="입력">
+    <input type="text"  placeholder="몸무게를 입력하세요" id="입력2">
+    <button onclick="계산()">계산</button>
+    <div id="출력"></div>
+    <script>
+
+        function 계산(){
+            const aa = document.querySelector('#입력');
+            const c= document.querySelector('#입력2');
+            const aaa= parseInt(aa.value) -105;
+            const b=aaa*0.9
+            const bb= aaa*1.1
+
+            console.log(aa.value);
+            console.log(c.value);
+            console.log(b.value);
+           if(c.value>=b && c.value<=bb){
+            document.querySelector('#출력').innerHTML="적정체중입니다";
+           } else{
+            document.querySelector('#출력').innerHTML="적정체중이 아닙니다";
+           }
+        }
+
+    </script>
+</body>
+</html>

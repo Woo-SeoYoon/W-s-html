@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        js 기초 , js 독학하기! 프로그램 만들어보기 
+        https://ko.javascript.info/
+    -->
+    <script>
+        // 75,80,90 을 저장하고 싶다 
+        const kor=[75,80,90];
+        // index를 이용한 출력
+        console.log(kor[1]);
+        console.log(typeof kor);  //object , 참조변수
+        kor[3]=100;              // kor 이 가리키는 값은 추가,변경 가능! 
+        console.log(kor);
+
+        kor = [30,50]; // kor 자체를 바꾸면 오류 : 바꾸려면 let으로 !!!  const는 상수라서 변경불가!  
+    </script>
+        
+</body>
+</html>

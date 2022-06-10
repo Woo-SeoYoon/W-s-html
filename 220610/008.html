@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증감 전위 후위 예제★</title>
+</head>
+<body>
+    <input type="text" id="점수">
+    <button onclick="추가()">추가</button>
+    <script>
+        //웬만하면 전위를 쓰는게 좋다 (후위로 써도 전위로 바꿔서 처리됨)
+        const ar=[];
+        //let index1 = 0;   *후위방식
+        let index2 =-1;   //전위방식을 쓸때 공식처럼 따라다녀야하는 변수!
+        function 추가(){
+                const input = document.querySelector('#점수');
+                //input.value 를 ar에 추가하세요
+                //ar[index1++]=input.value; *후위방식
+                ar[++index2]=parseInt(input.value);   
+                console.log(ar);        
+            }
+    </script>
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>★★★★★★증감연산자 중요!★★★</title>
+</head>
+<body>
+    <script>
+    //++  -- 연산자
+    let a = b= 10;
+    console.log(a);
+    console.log(b);
+    //증감연산자가 무조건 증감한다
+    ++a;    //전위 : 연산자가 앞에위치
+    b++;    //후위 : 연산자가 뒤에위치 **딴거할게 있으면 무조건 딴거 먼저한다음 증감함 
+    a+b;    //중위
+
+    //증감연산자는 다른연산자와 함께 사용할 수 있다
+    //그 경우 전위는 증감을 먼저, 후위는 증감을 나중에 한다
+    //후위: ******딴거할게 있으면 무조건 딴거 먼저한다음 증감함 
+
+    let c = ++a;
+    let d = b++;   //후위는 대입한 다음 증감한다.
+    console.log(a,b,c,d);
+
+    console.log(++a);
+    console.log(b++);  //후위는 출력한 다음 증감한다.  ******딴거할게 있으면 무조건 딴거 먼저한다음 증감함 
+    console.log(a===b);
+    </script>
+</body>
+</html>

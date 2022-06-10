@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중요함 사용자UX 관련 </title>
+</head>
+<body>
+    <input type="text" id="text1">
+    <button onclick="data11()">출력</button>
+
+    <script>
+            const 점수 = [];
+            let index =0;
+        function data11() {
+  //배열은 무조건 index 라는 변수 따라붙음 항상 같이 만들어주기 
+  //함수안에서 변수를 만들면 함수가 실행될때마다 새로만들어짐 
+            const input= document.querySelector('#text1');
+            점수[index]=parseInt(input.value);   //.value를 옮긴다 음 
+            input.value="";  //값입력받고 지우기
+            input.focus();   //포커스넣기
+            index++;
+            console.log(점수);
+            
+        }
+    </script>
+</body>
+</html>

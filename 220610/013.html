@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--덧셈/뺼셈/곱셈/나눗셈 계산기-->
+<input type="text" id="txt1">
+<select id="op">
+    <option disabled selected>사칙연산 선택</option>
+    <option value="덧셈">+</option>
+    <option value="뺄셈">-</option>
+    <option value="곱셈" >*</option>
+    <option value="나눗셈">/</option>
+</select>
+<input type="text" id="txt2">
+<span> = </span>
+<input type="text" id="resultbox" disabled>
+
+<button onclick="계산()"> 계산 </button>
+<script>
+     function 계산(){
+        const val1 = document.querySelector('#txt1');
+        const val2 = document.querySelector('#txt2');
+        const val3 = document.querySelector('#op');
+        const result = document.querySelector('#resultbox');
+
+        const value1= parseInt(val1.value);
+        const value2= parseInt(val2.value);
+
+        
+        let calcResult;
+    
+        if(op.value==="덧셈"){
+            calcResult = value1 + value2;
+        } else if(op.value==="뺄셈"){
+            calcResult = value1 - value2;
+        } else if(op.value==="곱셈"){
+            calcResult = value1 * value2;
+        } else {
+            calcResult = value1 / value2;
+        }
+        result.value= calcResult;
+    }
+
+    
+</script>
+
+</body>
+</html>

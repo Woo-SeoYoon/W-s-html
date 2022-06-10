@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--키를 입력받아 적정체중을 계산하여 적정체중인지 출력 -->
+    <input type="text"  id="입력">
+    <button onclick="계산()">계산</button>
+    <div id="출력"></div>
+    <script>
+        function 계산(){
+            const aa = document.querySelector('#입력');
+            const aaa= parseInt(aa.value) -105;
+            입력.value="";  //값입력받고 지우기
+            입력.focus();   //포커스넣기
+         
+            document.querySelector('#출력').innerHTML="적정체중: "+aaa;
+
+        }
+    </script>
+</body>
+</html>
