@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    값:<input type="text" id="value">
+    <button onclick="계산()">계산</button><br><br>
+    짝수여부:<span id="even"></span> <br><br>
+    제곱값:<span id="power"></span>
+
+
+    <script>
+ 
+            window.onload=function(){
+                const input = document.querySelector('#value');
+                const even = document.querySelector('#even');
+                const power = document.querySelector('#power');
+                const calc = document.querySelector('#calc');
+                }
+            calc.onclick = function(){
+                const value = parseInt(input.value);  
+                even.innerHTML = (value%2===0)? '짝수입니다' : '홀수입니다';
+                power.innerHTML= (value*value);
+                }
+    </script>
+</body>
+</html>

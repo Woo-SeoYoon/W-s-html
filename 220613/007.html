@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1부터 N까지 더하기 p.179</title>
+</head>
+<body>
+    <script>
+        //for반복문 안에서 콘솔찍어보기 vs 반복문 밖에서 콘솔찍어보기 
+        //안에서 찍으면 반복되는 모든 값출력 vs  밖에서 찍으면 최종조건충족 값만 출력
+        let 비교= 0
+        for (let i =1; i<=100; i++) {
+            비교 = i;
+            console.log(`${비교}이다`)
+        }
+        console.log(`${비교}이다`)
+
+
+        //1부터 N까지 더하기 값 도출하는 방법
+        let output= 0
+        for (let i =1; i<=100; i++) {
+            output += i;
+            
+        }
+        console.log(`${output}입니다`)
+        
+
+        //cr 배열안의 값을 더하기 값 도출하는 방법
+        const cr=[1,2,3,4,5];
+        let sum=0;
+        for(let i=0; i<cr.length; i++){
+           sum+=cr[i];
+        }
+        console.log(`${sum}입니다`);
+       
+        //tr의 배열을 복사(복사이름:kr)하는 방법 
+        const tr =[55,44,7777,55,66,33,22,1111,11,1222,33,44,45454,6464,6,6,8787,5646,555,3333,555,989,243,2342,4,34,23,4,342,555,666,555,444,242342];
+        for(const kr of tr){
+            console.log(kr);
+        }
+    </script>
+</body>
+</html>
