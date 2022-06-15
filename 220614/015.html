@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+    <script>
+        window.onload=function(){
+        const kor=[77, 88, 65, 80];
+        const target=$('#target');
+        //70점 이상인 성적만 #target에 출력하시오 
+        for(const kor2 of kor){
+            if(kor2>=70){
+                $(`<p>${kor2}</p>`).appendTo(target);
+            }
+          }
+        }
+    </script>
+    <div id="target"></div>
+</body>
+
+</html>

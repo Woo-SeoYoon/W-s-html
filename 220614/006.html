@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i= 10;
+        //scope : 변수의 사용범위(생존범위)
+        //let, const - {}가 스코프를 생성 (var 도 있음 var는 이전버전 전용;)
+
+        {let j =20;
+        console.log(i);}
+//i의 스코프 밖 > 오류
+        console.log(i);
+        console.log(j);
+//ES6 of반복문 - 배열의 값을 하나씩 꺼낸다 배열끝나면 자동종료 
+//of반복문은 복사하기이다 사본만들기 
+for (const i of ar){
+    console.log(i);
+}
+
+
+
+    </script>
+</body>
+</html>
