@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>매개변수</title>
+</head>
+<body>
+    <script>
+
+
+        const a = 5;
+        const b = -10;
+        console.log(Math.abs(a));
+        console.log(Math.abs(b));
+        //절대값 개념은 음수와 양수에 관계없이 수직선에서 원점으로 부터의 거리를 나타내보자 이다. 실제의 거리는 절대 음수로 나타낼수 없으므로  
+        //객체:속성과 메소드의 집합
+        //내장(build-in)객체: js가 기본 제공하는 객체
+        //Math 객체: 수학 함수와 상수를 모아놓은 객체
+
+        //변수쪽에서 사용자가 넘기는 값을 저장하는 변수 : 매개변수
+        //parameter
+        //argument 
+        function abs(x){
+          //return x;
+          //함수의 결과값: 리턴값 
+          //리턴한다 
+          if(x>0){
+              return x;
+          }else if(x<0){
+              return -x;
+          }
+
+          }
+          console.log(abs(a));
+          console.log(abs(b));
+
+
+    </script>
+</body>
+</html>

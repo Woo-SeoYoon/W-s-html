@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX  </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+</head>
+<body>
+    <!--http://sample.bmaster.kro.kr/-->      
+    <script>
+        const url='http://sample.bmaster.kro.kr/contacts?pageno=1&pagesize=10';   //데이터받아올 사이트 링크마저 const로 걸어준다 ;;; 지겨운 const 
+        window.onload=function() {
+        $.ajax(url).done(                                                                                              //데이터 변수선언 총 4번  (변수선언을 잘해야됨 이게 헷갈림!!!주의주의)
+            function(response){     //response 라는 변수로 데이터를 받아오는 함수 선언                                       *내가받아오는 데이터 변수이름: response
+            const contacts = response.contacts; //response안의 연락처(받아올 데이터) 를 임의변수로 저장한다.                   *내가받아오는 데이터 변수이름: contacts
+            const $target = $('#target'); //바디안의 아이디 #target 변수 지정 ; 데이터를 표시할 영역을 변수로 지정한다.
+            for(c of contacts) { //받아올 데이터를 (연락처) 하나씩 돌려서  c라는 변수로 집어넣기                               *내가받아오는 데이터 변수이름: c
+                const str = `<p>이름: ${c.name}, 주소: ${c.address}, 연락처: ${c.tel}</p>`; 
+                //받아올 데이터안에 이름/주소/전화번호 가져와서 p태그로 만들고 str이라는 변수에 저장때림                         *내가받아오는 데이터 변수이름: str
+                $(str).appendTo($target); //아까 저장한 변수를 아까아까 저장한 #target (line:18 참고) 안에 집어넣기 
+                     }
+                }
+            );  //done 괄호 ※done 괄호 주의 
+         }
+
+
+    </script>
+    <table>
+<div id="target">
+    </div>
+</body>
+</html>
+
+

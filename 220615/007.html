@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 반복문을 이용한 평균을 구하는 함수 </title>
+</head>
+<body>
+    <script>
+            const ar = [77,66,88,99,100];
+
+            // 평균함수 
+            // 함수 작업(계산처리 오직 함수를 위해 필요한 변수) 하는데 필요한 모든 변수는함수가 가지고 있어야한다. 
+            //함수의 입력은 여러개 가능하고 출력은 하나 (1가지 일만 해라)
+
+
+          function avgOfar(arr){
+              let sum=0;
+              for(const value of arr){
+                  sum+=value;
+
+              }
+              avg=sum/(ar.length);
+              return avg;
+
+              
+          }
+
+          console.log(avgOfar(ar));
+    </script>
+</body>
+</html>
+
+
+

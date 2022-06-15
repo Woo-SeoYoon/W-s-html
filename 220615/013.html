@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+</head>
+<body>
+
+
+    <script>
+            //현재 화면에서 서버와 통신하고 그 결과로 화면을 만든다 ->AJAX
+         
+            //AJAX 는 통신서버에서 데이터를 받아와서 실행함 (사이트?홈페이지주소? 를 바꾸지않고 데이터를 통신서버에서 받아와서 실행할 수있게끔 해줌)
+           
+            //AJAX 쓰이는 경우: 거의 사이트 내 지도 (네이버지도,구글지도 등등)에서 자주쓰임 
+           
+            /*AJAX의 경우 통신서버에서 받아오기때문에 시간이 오래걸릴 수 있음 >> 실행할 코드의 우선순위가 엉망이됨 
+              기본코드구조: $.ajax 호출하고 ->화면레이아웃잡기 & spinner 돌림 (새로고침아이콘 로딩아이콘) -> 데이터응답이오면 성공적으로 받으면 done() 안에 모든 코드작성해줘야함 그래야 우선순위바뀌지않음
+              [    $.ajax(주소).done(성공함수:서버가 보내준결과).fail(실패함수)  ] ::::::::::::::::: $.ajax가 성공했을때 수행할 코드는 무조건 done()안에 */
+
+        const url = 'http://sample.bmaster.kro.kr/contacts?pageno=2'
+        window.onload =  async function(x){
+        
+            $.ajax(url).done(function(x) {
+            //서버가 json으로 결과를 보내면 $.ajax()는 객체로 자동변환
+            //x: pageno,pagesize,totalcount,contacts
+                console.log(x.contacts); 
+                $('#target').attr('src',x.contacs[0].photo);
+                  }
+                );
+            }
+
+
+    </script>
+    <img id="target">
+</body>
+
+</html>

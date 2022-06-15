@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+
+            
+            //점수를 ul안에 출력하는 함수를 만드시오 
+            window.onload=function(){
+                const ar=[
+                      {ireum:'홍길동', jumsu:80}, {ireum:'전우치',jumsu:75}
+                    ];
+                const $list=$('#list');
+            function printAr(arr){
+
+                    for(const ob of arr){
+                            $(`<li>${ob.jumsu}</li>`).appendTo($list);
+                        }
+
+                        }
+            
+            //  $(`<li>$(ob.eng)</li>`).appendTo($list).css('color','red');
+            // $(`<li>$(ob.eng)</li>`).appendTo($list);
+
+            printAr(ar);
+                     
+                    }
+
+       
+
+
+
+
+    </script>
+
+    <ul>
+        <li id="list"></li>
+    </ul>
+</body>
+</html>

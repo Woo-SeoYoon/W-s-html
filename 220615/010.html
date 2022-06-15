@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체안의 값 부분출력 / 다시구현하기 </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+
+            
+            //점수를 ul안에 출력하는 함수를 만드시오 
+            window.onload=function(){
+                const ar=[
+                      {ireum:'홍길동', jumsu:80}, {ireum:'전우치',jumsu:75}
+                    ];
+                const $list=$('#list');
+                const $div=$('#target');
+                let sum=0;
+            function printAr(arr){
+                    
+
+                    for(const ob of arr){
+                            $( `<li>${ob.ireum}의 점수는 ${ob.jumsu}점</li>`).appendTo($list);
+                            sum+=ob.jumsu;
+                            
+                            
+                        }
+                        $( `<p>점수합계:  ${sum}점</p>`).appendTo($div);
+                        
+
+                }
+            //  $(`<li>$(ob.eng)</li>`).appendTo($list).css('color','red');
+            // $(`<li>$(ob.eng)</li>`).appendTo($list);
+
+            printAr(ar);
+                     
+                    }
+//다시구현해보기
+//변수선언 위치 파악을 잘모르겠음 여러번 찍어봐야됨  변수선언 위치 다시 파악하기가 제일 중요함 ! 
+
+
+    </script>
+
+    <ul>
+        <li id="list"></li>
+    </ul>
+
+    <div id="target"></div>
+</body>
+</html>
