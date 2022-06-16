@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+</head>
+<body>
+    <button onclick="a111()">111</button>
+    <button id="k1">222</button>
+    <button id="k2">333</button>
+    <button id="k3">444</button>
+    <button id="k4">555</button>
+<script>
+    function a111(){
+        alert("1번이다")
+    }
+
+    document.querySelector('#k1').onclick=function(){
+        alert("2번이다")
+    }
+    document.querySelector('#k2').addEventListener('click',function(){
+        alert("3번이다")
+    })
+    $('#k3').click(function(){
+        alert("4번이다")})
+    
+    $('#k4').on('click',function(){
+    alert("5번이다")})
+
+
+</script>
+</body>
+</html>

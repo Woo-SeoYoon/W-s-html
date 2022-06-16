@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다시작성 해야됨 틀림 </title>
+    <script>
+        $(document).ready(function(){
+            const $div = $('<div').appendTo($('#page'));
+            for(let i=1; i<=3; i++){
+                $('<div>').attr('id', 'p' +i).text('우리나라').appendTo($div);
+            }
+        })
+
+
+            //이벤트 핸들러에서 이벤트가 발생한 곳: $(this)  this 와 $(this) 는 그놈이 그놈 this에 제이쿼리먹인것 
+    //$('p')라고 하면 p 3개의 배열이 잡힌다
+    $('p1').click(function(){
+        $('p').css('display','none')
+
+    })
+    /*('#p1').click(function(){
+        $(this).css('display','none');
+    })
+    ('#p2').click(function(){
+        $(this).css('display','none');
+    })
+        ('#p3').click(function(){
+        $(this).css('display','none');
+    }) 
+    */ 
+
+    </script>
+</head>
+<body>
+    <div id="page">
+
+    </div>
+</body>
+</html>

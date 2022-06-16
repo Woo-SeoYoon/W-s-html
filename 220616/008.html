@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+</head>
+<body>
+    <script>
+          $(document).ready(function(){ // html 내 모든 요소들이 이벤트로 실행될 준비! 
+        //p요소를 클릭하면 클릭한 요소가 사라지게 display:none 하시오 
+        $('#p1').click(function(){
+            $('#p1').css('display','none');
+             })
+      
+         $('#p2').click(function(){
+            $('#p2').css('display','none');
+             })
+             $('#p3').click(function(){
+            $('#p3').css('display','none');
+             })
+    
+         })
+
+
+    </script>
+    <p id="p1" >우리나라</p>
+    <p id="p2">우리나라</p>
+    <p id="p3">우리나라</p>
+
+</body>
+</html>

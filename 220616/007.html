@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좌표넣기 좌표주기 mousemove 함수 </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+    <style>
+        #page{
+            width:400px; margin:0 auto;
+        }
+        #canvas{
+            width:400px; background-color: red;
+            height:400px;   
+        }
+        #position{
+            height:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //js 이벤트 : load, change, click, moucemove
+        //jQuery 이벤트
+        window.onload=function() {
+    $(document).ready(function(){
+        //window.onload 와 마찬가지. 좀더 융통성있다
+        //예를들어 document.ready는 여러개를 사용해도 모두 동작
+        $('#canvas').mousemove(function(e){
+            $('#position').text(`x좌표:${e.pageX}, y좌표:${e.pageY}`)
+
+            })
+        })
+    }
+    </script>
+    <div id="page">
+        <div id="canvas">
+
+        </div>
+        <div id="position"></div>    
+    </div>
+
+</body>
+</html>

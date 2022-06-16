@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--event-->
+<p>GUI 환경에서는 사용자가 프로그램을 통제한다</p>
+<p>사용자의 동작(이벤트)하면 거기에 프로그램이 반응한다</p>
+click, change, load, Document
+    
+
+    <!--event handler-->
+    <!-- window.onload=function(){} -->
+<p>이벤트가 발생하면 동작할 함수</p>
+<p>함수를 만들면 반드시 호출해야한다:()닫으면 호출</p>
+<p>이벤트 핸들러는 프로그래머가 작성하고 시스템에 등록하면 시스템이 실행해준다</p>
+    <!--event handler를 등록하는 방법-->
+
+
+    <!--call back-->
+<p>위탁해서 실행하는 함수</p>
+<p>window는 모든함수가 callback 임 아주 콜백덩어리임 </p>   
+
+    <!--event 객체-->
+
+****************************************************
+        <!--event handler를 등록하는 방법-->
+<script>
+    /*
+        event를 등록하는 방법
+        1. html 속성으로 <button onclick="">
+        2. js에서 on속성으로
+
+
+
+         event 객체: 이벤트 했을 떄의 상태를 저장하는 객체
+          예를 들어 마우스좌표,control?, shift?
+          이벤트 핸들러의 파라미터가 없다. 파라미터를 적으면 이벤트객체다
+     */
+document.querySelector('#target').onclick = function(e){
+    console.log(e);
+    console.log(e.pageX);
+}
+
+
+</script>
+</body>
+</html>
