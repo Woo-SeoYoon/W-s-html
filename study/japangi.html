@@ -13,12 +13,13 @@
             display:flex;
             justify-content: space-evenly;
             height: 100vh;
-            width:65%;
+            width:75%;
             
         }
 
         #page{
-            width:85%;
+            width:100%;
+            height: 100%;
             border: 3px solid rgb(181, 201, 214);
             border-radius: 15px;
             padding: 10px;
@@ -53,6 +54,7 @@
             background-color: black;
             border-radius: 30px;
             color: red;
+            
         }
         .menu, .menu button:hover{
          
@@ -61,11 +63,12 @@
 
 
         #money22{
-        width:15%;  
+        width:20%;  
         border: 2px solid #000;
         height: 50%;
         margin-left: 5%;
         margin-top: 5%;
+        float: right;
         }
         #동전투입{
             width:90%;
@@ -83,7 +86,7 @@
             border: 1px solid red;
             font-size: 20px;
             color:red;
-            width: 45%;
+            width: 55%;
             height: 5vh;
             margin: 2%;
             text-align: right;
@@ -96,11 +99,35 @@
             height: 18%;
 
         }
-        #현재금액문구{
-            display: inline-block;
-            margin: 2%;
-            font-size: 20px;
+
+
+        #money22 button{
+            margin:2%;
+            cursor: pointer;
+        }
+        #출구{
+            background-color: grey;
+            width: 75%;
+            height: 15vh;
+            margin-top: 42%;
+            opacity: 0.75;
+            border-radius: 20px;
+        }
+
+
+
+
+        #카드 p{
+            font-size: 12px;
             font-weight: bold;
+        }
+
+        #카드투입구{
+            width:35%;
+            height: 1.5vh;
+            background-color: black;
+            display: inline-block;
+            text-align: right;
         }
 
     </style>
@@ -133,27 +160,35 @@
     
         </div>
         <div id="금액디브">
-        <p id="현재금액문구">현재금액 : </p>
+
         <p id="현재금액"></p>
         <div id="동전투입">결제<br>하기</div>
+        <div id="카드"><p>카드결제</p>
+            <div id="카드투입구"></div>
+            
         </div>
+    
+        </div>
+        
+        <div id="출구"> </div>
         
         </div>
         
     </div>
     <div id="money22">
         <h2> 금액 </h2>
-        <button onclick="투입(1000)"id="천원">1,000원 넣기</button>
-        <button onclick="투입(5000)"id="오천원">5,000원 넣기</button>
-        <button onclick="투입(10000)"id="만원">10,000원 넣기</button>
+        <button onclick="투입(1000)"id="천원"><img src="천원.png" width="115px"></button>
+        <button onclick="투입(5000)"id="오천원"><img src="오천원.png" width="115px"></button>
+        <button onclick="투입(10000)"id="만원"><img src="만원.png" width="115px"></button>
         </div>
+
+        
         
     </div>
 
     <script>
         let 현재금액= 0;
         const result = document.querySelector('#현재금액');
-
         function 투입(money){
           
          현재금액 = 현재금액 + money;
