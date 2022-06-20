@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+    let 위도, 경도;
+    const key = '4e96bbe63437be4054581d930fdd2021';
+    async function getPosition() {
+    const city = 'Incheon';
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`
+
+        const result = await $.ajax(url);
+
+         위도 = result[0].lat;
+         경도 = result[0].lon;
+    
+} 
+
+$(document).ready(async function(){
+   await getPosition();
+   // 서버상태를 숫자로 표시
+   //401: 권한없음, 400: 수신 거부 , 404: 주소없음
+
+    console.log(위도,경도);
+    const url = `http://api.openweathermap.org/data/2.5/onecall?lat=${위도}&lon=${경도}&include=hourly,daily&appid=${key}`;
+    const result = await $.ajax(url);
+    //현재온도,습도,최고온도,최저온도,구름,날씨,자외선,일출시간,일몰시간;
+    //일출시간,일몰시간 - UTC 표시를 지역시간으로 바꾸자
+    console.log(result.current.sunrise);
+    //js 내장객체 Date -> new를 사용 (그때그때 값이 다른 경우 )
+    const sunrise = new Date(result.current.sunrise*1000); //1000을 곱해줘야하는이유 시간단위가 s가 아니라 ms가 되어야함 
+    console.log(sunrise.getFullYear());
+    console.log(sunrise.getMonth()+1);  //월은 0부터 시작 
+    console.log(sunrise.getDate());    
+    console.log(sunrise.getDay());   //요일
+    console.log(sunrise.getHours());
+    console.log(sunrise.getMinutes());
+
+    const date = new Date();
+    console.log(sunrise);
+    console.log(result);
+
+   
+})
+    </script>
+</body>
+</html>

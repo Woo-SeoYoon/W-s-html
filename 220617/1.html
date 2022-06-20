@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>비동기 작업</title>
+</head>
+<body>
+    <button onclick="sync()">동기작업</button>
+    <button onclick="async()">비동기작업</button>
+
+    <script>
+        function a() {console.log('a')}
+        function b() {console.log('b')}
+        function c() {console.log('c')}
+        // 함수는 하나씩 순서대로 실행 > 동기(synchronous)
+        // 그럼 비동기는? 동시 작업 되는 것
+        function sync() {
+            a();
+            b();
+            c();
+        }
+        function async() {
+            $.ajax("http://sample.bmaster.kro.kr/").done(function() {
+                a();});
+
+                b();
+                c();
+        }
+      //  const result = await $ajax.();
+        await a();
+        await b();
+        await c();
+        // 네트워크 끼면 다 비동기
+        // 그럼 a b c 순서대로 비동기 처리를 하고 싶으면? await
+        // 그럼 만약 위의 상황에서 또 ajax를 해야 된다면?
+    </script>
+</body>
+</html>

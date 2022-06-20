@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Weather!</title>
+    <style>
+
+    </style>
+    <script>
+        const key = '92405178b6d991b3e22f278fb69b7e7b';
+        const cities = [
+        {name: '인천', code:'Incheon'}, {name: '서울', code:'Seoul'}, {name: '부산', code:'Busan'}, {name: '도쿄', code:'Tokyo'}, {name: '뉴욕', code:'New York'}
+        ];
+
+        let cno = 0;
+        let weather = null;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`
+
+        function init() {
+            const $buttons = $('#buttons');
+            for(let i=0; i<cities.length; i++) {
+                // 이 버튼 클래스 btn 어쩌고가 부트스트랩이고 버튼을 생성시켜주는 듯 그 버튼 값을 data-cno 의 i로 한거고
+                // data- 를써서 요소에 cno라는 값을 i로 바꿔서 저장한듯 
+                // 그럼 여기서 요소라면 버튼 클래스 겠지
+                $('<button class="btn btn-primary">').attr('data-cno', i).text(cities[i].name).appendTo($buttons);
+            }
+        }
+
+        function printWeather() {
+            $('#name').text(weather.name);
+            $('#temp').text(`온도${weather.main.temp}도/습도:${weather.main.humidity}%`)
+            $('#cloud').text(weather.weather[0].description);
+        }
+        
+        // 위에 init 함수 printWeather 함수를 넣은거네 여따가
+        $(document).ready(async function() {
+            init();
+            weather = await $.ajax(url);
+            printWeather();
+
+            $("#buttons button").click(async function() {
+                cno = parseInt($(this).attr('data-cno'));
+                url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`
+                wearther = await $.ajax(url);
+                printWeather();
+            });
+        });
+    </script>    
+</head>
+<body>
+    <div id="app">
+        <h1>Weather🚗</h1>
+        <div id="weatherInfo">
+            <div id="name"></div>
+            <div id="temp"></div>
+            <div id="cloud"></div>
+        </div>
+        <div id="buttons" class="btnGroup"></div>
+    </div>
+</body>
+</html>

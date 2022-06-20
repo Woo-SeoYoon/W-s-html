@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+     
+      let 우서윤날씨 = null;
+
+      const key = "4e96bbe63437be4054581d930fdd2021";
+      const city = "Incheon";
+      const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`;
+
+      let 위도, 경도;
+
+      async function getPosition() {
+        const result = await $.ajax(url);
+        위도 = result[0].lat;
+        경도 = result[0].lon;
+      }
+
+      function getFormatDate(date) {
+        return `${date.getMonth() + 1}월${date.getDate()}일`;
+      }
+
+      function getFormatTime(date) {
+        return `${date.getHours()}:${date.getMinutes()}`;
+      }
+
+      async function getWeather() {
+        const url1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${위도}&lon=${경도}&appid=${key}&units=metric`;
+        const result = await $.ajax(url1);
+        const 현재온도 = result.current.temp;
+        const 습도 = result.current.humidity;
+        const 최고 = result.daily[0].temp.max;
+        const 최저 = result.daily[0].temp.min;
+        const uvi = result.current.uvi;
+        const 상태 = result.current.weather[0].description;
+        const 예보 = [];
+
+        for (let i = 1; i <= 7; i++) {
+          const sunrise = new Date(result.daily[i].sunrise * 1000);
+          const 날짜 = getFormatDate(sunrise);
+          const 일출 = getFormatTime(sunrise);
+          const 상태 = result.daily[i].weather[0].main;
+          예보[i - 1] = { 날짜, 일출, 상태 };
+        }
+        async function getPollution() {
+        const url2 = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${위도}&lon=${경도}&appid=${key}`;
+        const result = await $.ajax(url2);
+        const pm10 = result.list[0].components.pm10;
+        const pm2_5 = result.list[0].components.pm2_5;
+        우서윤날씨 = {pm10, pm2_5, 습도, 현재온도};
+        console.log(우서윤날씨);
+      }
+      }
+
+ 
+      
+      $(document).ready(async function () {
+        await getPosition();
+        await getWeather();
+        await getPollution();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        //변수를 let , var, const 없이 작성할 수 없다.  
+
+    let 좌표=null;
+    let 날씨=null;
+    const key = '4e96bbe63437be4054581d930fdd2021';
+    async function getPosition() {
+    const city = 'Incheon';
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`
+
+        const result = await $.ajax(url);
+
+         위도 = result[0].lat;  //전역변수 "let,cosnt" 키워드선언X
+         경도 = result[0].lon;  //전역변수 "let,cosnt" 키워드선언X
+         좌표={위도, 경도};
+
+        } 
+function getFormatDate(date){
+    return `${date.getMonth()+1}월${date.getDate()}일`;
+}
+
+function getFormatTime(date){
+    return `${date.getHours()}:${date.getMinutes()}`;
+}
+
+
+
+async function getWeather(){
+    const url = `http://api.openweathermap.org/data/2.5/onecall?lat=${좌표.위도}&lon=${좌표.경도}&include=hourly,daily&appid=${key}`;
+    const result = await $.ajax(url);
+    const 일출 = new Date(result.current.sunrise*1000);
+    const 일몰 = new Date(result.current.sunset*1000);
+    const 온도 =result.current.temp;
+    const 습도=result.current.humidity;
+    const 최고=result.daily[0].temp.min;
+    const 최저=result.daily[0].temp.max;
+    const 체감=result.current.feels_like;
+    const 자외선=result.current.uvi;
+
+    const 상태 = result.current.weather[0].main;
+    let 예보 = [];
+
+    for(let i=1; i<=7; i++){
+        const sunrise = new Date();
+        const 날짜 = getFormatDate();
+        const 일출 = getFormatTime();
+        const 상태 = result.daily[i].weather[0].main;
+        예보[i-1]={날짜,일출,상태};
+
+    }
+    날씨={일출,일몰,온도,습도};
+    console.log(날씨);
+
+}
+/* 1.Geocoding API를 이용해 인천의 위도 경도를 얻어온다
+2.One Call API 1.0 를 이용해 현재 날씨와 주간예보를 얻어온다
+(온도를 섭씨로 설정)
+3.Air Pollution API를 이용해 pm10(미세먼지),pm2_5(미세먼지)를 얻어온다
+4.세 api의 정보를 통합해 아래 속성을 가진 객체를 생성해 console로 출력
+위도,경도,현재온도,최저온도,최고온도,습도,uvi,상태(Clouds,Cun,Rain) 일주일간예보, pm10,pm2_5
+*/
+
+
+$(document).ready(async function(){
+       await getPosition();
+       await getWeather();
+})
+    </script>
+</body>
+</html>

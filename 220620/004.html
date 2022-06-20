@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test1(){
+            const{일출,일몰,온도,이름='홍길동'}=날씨;
+            console.log(일출);
+            console.log(온도);
+            console.log(이름);
+        }
+        function test2({일출, 일몰, 온도, 이름='홍길동'}){
+            console.log(이름);
+        }
+        $(document).ready(async function(){
+            await getPosition();
+            await getWeather();
+            test1();
+            test2(날씨);
+        });
+    </script>
+</body>
+</html>

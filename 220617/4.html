@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap framework - css / js -->
+    <!-- 한마디로 정리하면 웹사이트 개발 프레임워크다.
+        그렇다면 프레임워크란 뭘까?
+        프레임워크는 영어로는 FrameWork로
+        한국어로 쉽게 도우미라고 생각하면 된다.
+        즉, 부트스트랩은 HTML, CSS, JS 도우미다.-->내가할수있음 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>날씨앱 3단계 함수</title>
+    <style>
+        body {
+    
+        background: url(https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=670&q=80);
+        background-repeat: no-repeat;
+        background-size: cover;
+       }
+        #app {
+            font-family: 'Nanum Gothic', '맑은 고딕', sans-serif;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            font-size: large;
+            color: black;
+            height: 100vh;
+        }
+        #app h1 {
+           margin: 50px;
+           color: cornflowerblue;
+        }
+        .btnGroup {
+            margin: 50px;
+        }
+        #weatherInfo {
+            border: 3px solid black;
+            border-radius: 20px;
+            background-color: rgba(240, 247, 255, 0.3);
+            width: 300px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        // api key 
+        const key = '92405178b6d991b3e22f278fb69b7e7b';
+       
+        // cities 변수를 만들고 값을 넣었음 
+        const cities = [
+            {name: '인천', code:'Incheon'}, {name: '서울', code:'Seoul'}, {name: '부산', code:'Busan'}, {name: '도쿄', code:'Tokyo'}, {name: '뉴욕', code:'New York'}
+        ];
+
+        let cno = 0; // cno라는 변수 값을 초기화 
+        let weather = null; // weather 변수 값을 비워둠?
+        // url 변수를 선언하고 날씨 api 주소를 넣었음
+        // cities 변수의 cno 0번째.code 0번째 코드
+        // > cities 변수의 index 0번째 코드 > Incheon
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`;
+
+        // 초기화 함수 : 도시 목록을 버튼으로 출력한다
+        function init() { 
+            //div id buttons를 제이쿼리로 설정한 것을 $버튼s 라고 변수선언
+            // $('#buttons')라고 안썻다면 document.쿼리셀렉터 이거 써야되는데
+            // 쉽게 말해서 제이쿼리 쓰면 코드가 단순해져서 쓰는듯
+            const $buttons = $('#buttons'); 
+            // for 반복문 0부터 cities index 길이만큼 0 1 2 3 4가 되겠지
+            // i++ 차례대로 증가해라
+            // .attr
+            // $버튼클래스 버튼 프라이머리 요소의 data-cno 값을 i로 변경해라
+            // text 선택한 요소 안의 내용을 가져와라
+            //  cities index i 의 name 요소의 내용 즉, i가 0부터니까 
+            // 0번째 .name > 인천을 가져온다
+            // cities[i].name 요소를 $buttons 요소 안으로 이동시켜라
+            // 즉, 인천이라는 내용을 $buttons에 넣는거임
+            for(let i=0; i<cities.length; i++) {
+                $('<button class="btn btn-primary">').attr('data-cno', i).text(cities[i].name).appendTo($buttons);
+            }
+        }
+
+        function printWeather() {
+            //$(선택자).text() > 선택자요소의 내용을 () 로 바꾼다.
+            //$(선택자)의 내용을 weather.name으로 바꾼다
+            // weather.name 뭐 main.temp main.humidity 이런건
+            //어디서 보고 쓴거지? api 링크 콘솔창에서 찾아서 쓴건가??
+            // 아까 콘솔로 뭐 화씨 뜬거 보고 그랬으니까 그런거같기도?
+            $('#name').text(weather.name);
+            $('#temp').text(`온도${weather.main.temp}도/습도:${weather.main.humidity}%`)
+            $('#cloud').text(weather.weather[0].description);
+        }
+        // $(document).ready()는 문서가 준비되면 매개변수로 넣은 콜백 함수를 실행하라는 의미입니다. jQuery 이벤트 메서드 중 하나입니다. 이 메서드는 비슷한 기능을 수행합니다.
+        // function 앞에 async 넣으면 비동기 통신 설정 
+        // async/await 쓸거면 함수 또는 메서드 앞에 async 키워드 넣고
+        // 내부에 async 키워드 await를 써서 비동기 통신 요청 처리 하는듯?
+        $(document).ready(async function() {
+            init();
+            // weather 는 링크에서 온 데이터를 처리해라 ? 링크(날씨api)에서 요청한 데이터를 받을거다?
+            // init(); printWeather(); 이건 왜 쓸까
+            // 요 두 빈곳에 넣는다는건가? 얘네는 위에 
+            // 함수 옆에 이름인데 이게 파라미터인가?
+            // 위에 설정한 함수 파라미터 안에 넣겠다는건가?
+            //weather에 null줘서 비어 있어서 넣을수있는건가?
+            weather = await $.ajax(url);
+            printWeather();
+
+            //이벤트 처리 코드는 반드시 $(document)안에
+            // $선택자를 클릭하면 async 함수 값을 넣어라
+            $("#buttons button").click(async function() {
+                // cno는 this가 buttons button인가? 
+                // 얘의 값에 data-cno를 넣어라 그걸 정수로 바꾸고
+                // url은 날씨 api 그 링크 형식에 위에 설정한 cities에서
+                // cno의 code 값 여기서 cno= 버튼즈 버튼의 data-cno 정수값?
+                // 날씨는 비동기통신
+                // 위의것들을 printWeather() 요 안에 넣는다? 
+                // ㅅㅂ 버튼 생성 안했는데 버튼 어디서 생겼어 
+                // 부트스트랩써서 나온거같은데 
+                cno = parseInt($(this).attr('data-cno'));
+                url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`
+                weather = await $.ajax(url);
+                printWeather();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="app">
+        <h1>Weather⛅</h1>
+        <div id="weatherInfo">
+            <div id="name"></div>
+            <div id="temp"></div>
+            <div id="cloud"></div>
+        </div>
+        <div id="buttons" class="btnGroup">
+            <!-- 요소에 값을 저장할 때는 data- 속성을 사용한다 -->
+           <!--
+            // 부트스트랩 버튼 양식 근데 이거 주석처리했는데
+                버튼 어떻게 생기는거지???? 
+            <button type="button" class="btn btn-primary" data-city="Incheon">인천</button>
+            <button type="button" class="btn btn-primary" data-city="Seoul">서울</button>
+            <button type="button" class="btn btn-primary" data-city="Busan">부산</button>
+            <button type="button" class="btn btn-primary" data-city="Tokyo">도쿄</button>
+            <button type="button" class="btn btn-primary" data-city="New York">뉴욕</button>
+            -->
+        </div>
+    </div>
+</body>
+</html>
+<!--
+참고한 링크 정리
+https://www.w3schools.com/bootstrap5/bootstrap_buttons.php 부트스트랩 버튼
+https://getbootstrap.com/docs/5.0/getting-started/introduction/#css 
+부트스트랩 cdn
+https://openweathermap.org/current 날씨 api doc 들어간거
+https://redcow77.tistory.com/326 제이쿼리 attr 함수
+https://ratseno.tistory.com/68 $document.ready function
+https://johnal9438.tistory.com/51 async await
+https://blog.wishket.com/api%EB%9E%80-%EC%89%BD%EA%B2%8C-%EC%84%A4%EB%AA%85-%EA%B7%B8%EB%A6%B0%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/ api가 뭐냐
+https://www.codingfactory.net/10302 appentTo
+https://www.codingfactory.net/10327 제이쿼리 .text
+https://mjmjmj98.tistory.com/26 제이쿼리 .text
+https://hanamon.kr/%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9-bootstrap-%EC%9D%B4%EB%9E%80/ 부트스트랩
+-->
