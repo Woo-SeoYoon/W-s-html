@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        //this
+        function aaa() {
+            // 1. 함수에서는 window 객체다
+            console.log(this);
+        }
+        function bbb() {
+            console.log("1." + this);  //this: window
+            const param = {
+                pageno : 1,
+                test() {
+                    console.log(this);
+                }
+            }
+            //전통적 $.ajax
+            $.ajax({
+                url : 'http://sample.bmaster.kro.kr/contacts',
+                data : param,
+                success : function(result) {
+                    console.log("2." + this); }
+                });
+                //위 $.ajax의 개량 -> await(ES2018인가 추가)
+                $.ajax('http://sample.bmaster.kro.kr/contacts')
+                .done(function(result){ console.log("3."+ths)});
+        }
+        //js 함수의 this : window  
+        //일반함수의 this : 현재 소속된 객체 >>> 동적이다(바뀔 수 있다) 
+        //일반함수를 단독으로 사용하면 window, 메소드를 사용하면 객체,
+        //"이벤트핸들러로 하용하면 이벤트가 발생한 곳"
+        //화살표 함수의 this는 정적이다 (바뀌지않음 )       
+
+        //$.ajax 성공이벤트 핸들러에서 this는 서버의 응답
+
+    </script>
+</body>
+</html>

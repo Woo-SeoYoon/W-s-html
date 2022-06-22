@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+        //반복문
+        const ar = [1,2,3,4,5];
+
+        for( a of ar) {
+            console.log(a);
+        }
+
+        for(let i=1; i<=ar.length; i++){
+            console.log(i);
+        }
+
+        ar.forEach((a)=>console.log(a));
+        ar.forEach((a, i)=>console.log(`${i}번째 원소 : ${a}`));
+
+
+        $.each(ar,function(idx, a){
+            console.log(`${idx}번째 원소 : ${a}`)
+        })
+    </script>
+</body> 
+</html>

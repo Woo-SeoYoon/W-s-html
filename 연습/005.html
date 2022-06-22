@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택박스 바뀔때마다 배열 추가하기 구현</title>
+</head>
+<body>
+    <select id="과일" >
+        <option disabled selected>보기를 선택하세요</option>
+        <option>사과</option>
+        <option>배</option>
+        <option>포도</option>
+        <option>수박</option>
+    </select>
+    <button onclick="change11()"> 버튼 </button>
+
+    <script>
+        const ar=[];
+        let aaa=0;
+        function change11(){
+            const chch = document.querySelector('#과일').value;
+            ar[aaa]=chch;
+            aaa++;            
+            console.log(ar);
+        }
+    </script>
+</body>
+</html>

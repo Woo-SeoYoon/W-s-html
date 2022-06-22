@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추천수버튼</title>
+</head>
+<body>
+    <!--이벤트-AJAX통신-this  -->
+    <button id="clickbtn">1</button>
+    <button id="clickbtn1">1</button>
+    <script>
+        $('#clickbtn').click(function(){
+            console.log(this);
+            $.ajax('http://sample.bmaster.kro.kr/contacts')
+            .done(function(result){
+                //$.ajax의 성공핸들러에서 this는 서버의 응답
+                console.log($(this));
+                $(this).text(2);
+
+            })
+        })  //this 가 자꾸 바뀌는게 문제라면?  this를 저장하면됨~! 
+        $('#clickbtn1').click(function(){
+            //this를 저장하자
+            const_this = this;
+            console.log(this);
+            $.ajax('http://sample.bmaster.kro.kr/contacts')
+            .done(function(result){
+                console.log($(this));
+                $(this).text(2);
+
+            })
+        })
+    </script>
+    
+</body>
+</html>

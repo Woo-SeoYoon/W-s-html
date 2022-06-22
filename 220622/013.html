@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나 왜살지 입실 13시 26분 찍은날</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        //Model : 데이터
+        const cities =[{name:'서울', code:'Seoul'},
+        {name:'부산', code:'Busan'},
+        {name:'인천', code:'Incheon'}
+         ];
+         //View : 데이터를 출력
+         function addCities(){
+             const $target = $('#target');
+             cities.forEach((city,i)=>{
+                 $('<button>').text(city.name).attr('data-cno',i).appendTo($target);
+             })
+         }
+         $(document).ready(function(){
+             const $target = $('#target');
+             cities.forEach((city,i)=>{
+                 $('<button>').text(city.name).attr('data-cno',i).appendTo($target)
+             })
+         })
+
+         </script>
+
+
+</head>
+<body>
+    <div>
+        <button id="btn">추가</button>
+        <div id="target">
+
+        </div>
+        <button data-city="Seoul">서울</button>
+        <button data-city="Busan">부산</button>
+        <button data-city="Incheon">인천</button>
+    </div>
+</body>
+</html>

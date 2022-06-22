@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+      const url = 'http://sample.bmaster.kro.kr/contacts?pageno=1';
+      async function url비동기화(){
+        const 비동기화url= await $.ajax(url);
+        return 비동기화url;
+      }
+      
+      async function html구역함수({contacts}){
+          
+        const $tttable = $('#ttable');
+        for(const data of contacts){
+            const $tr=$('<tr>').appendTo($tttable);
+                $('<td>').text(data.no).appendTo($tr);
+                $('<td>').text(data.name).appendTo($tr);
+                $('<td>').text(data.address).appendTo($tr);
+        }
+    }
+    $(document).ready(async function(){
+            let dataa = await url비동기화();
+            html구역함수(dataa);
+        })
+        
+    </script>
+    <table id="ttable"></table>
+</body>
+</html>

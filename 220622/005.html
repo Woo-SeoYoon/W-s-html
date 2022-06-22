@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(this);     //전역 this는 window객체
+        //함수와 화살표함수는 this가 다르다
+        const obj = {
+            printThis()  {
+                kor:70,
+                //메소드의 this는 소속된 객체르 가리켜야 한다
+                console.log(this);
+
+            }
+            }
+
+        const obj2 = {
+            printThis:()=>{
+                //화살표함수의 this는 window다> 화살표함수로는 메소드를 만들 수없다
+                console.log(this);
+            }
+            }
+
+        console.log(obj.printThis());
+        console.log(obj2.printThis());
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적평균구현</title>
+</head>
+<body>
+    <input type="text"  placeholder="국어점수를 입력하세요" id="국어1">
+    <input type="text"  placeholder="영어점수를 입력하세요" id="영어1">
+    <input type="text"  placeholder="수학점수를 입력하세요" id="수학1">
+    <button onclick="avg()"> 입력 </button>
+
+    <script>
+        function avg() {
+            const kor1 = document.querySelector('#국어1');
+            const eng1 = document.querySelector('#영어1');
+            const math1 = document.querySelector('#수학1');
+            const avggg = (parseInt(kor1.value)+parseInt(eng1.value)+parseInt(math1.value))/3;
+            alert(avggg);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자판기혼자 구현해보기 css부분 못함 </title>
+</head>
+<body>
+    <div class="판매버튼">물
+        <button value="2000" class="판매버튼" onclick="판매(2000)">2000원</button>
+    </div>
+    <div class="판매버튼">콜라
+        <button value="2000" class="판매버튼" onclick="판매(2000)">2000원</button>
+    </div>
+    <div class="판매버튼">주스    
+    <button value="2000" class="판매버튼" onclick="판매(2000)">2000원</button>
+    </div>
+        <button value="1000" class="돈버튼" onclick="돈넣기(1000)">1000원</button>
+        <button value="5000" class="돈버튼" onclick="돈넣기(5000)">5000원</button>
+        <button value="10000" class="돈버튼" onclick="돈넣기(10000)">10000원</button>
+        <p>현재금액: <span id="현재금액"></span></p>
+
+    <script>
+        let 금액= 0;
+
+        result=document.querySelector('#현재금액')
+
+        function 판매(money){
+
+
+            if(금액>=money){
+                alert('구매완료');
+                금액=금액-money;
+                result.innerHTML=금액;
+            }else{ alert('잔돈이 부족합니다')}
+        }
+
+        function 돈넣기(money){
+            금액=금액+money;
+            result.innerHTML=금액;
+            colorblue();
+        }
+
+        function colorblue(){
+            const 판매버튼 = document.getElementsByClassName(판매버튼)
+           if(금액>=2000) {판매버튼.style.color = "blue";}
+          
+        }
+        
+    </script>
+
+</body>
+</html>

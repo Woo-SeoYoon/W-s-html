@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 혼자 구현해보기 </title>
+    <link rel="stylesheet" type="text/css" href="계산.css"/>
+</head>
+<body>
+    <form name="계산폼">
+        <input type="text"  name="txt1" id="text1" readonly >
+        <input type="button" value="C" class="clear" onclick="document.계산폼.txt1.value=''">
+        <input type="button" value="1" class="num"  onclick="document.계산폼.txt1.value+='1'">
+        <input type="button" value="2" class="num" onclick="document.계산폼.txt1.value+='2'">
+        <input type="button" value="3" class="num"onclick="document.계산폼.txt1.value+='3'">
+        <input type="button" value="+" id="oper"onclick="document.계산폼.txt1.value+='+'">
+        <input type="button" value="4" class="num"onclick="document.계산폼.txt1.value+='4'">
+        <input type="button" value="5" class="num"onclick="document.계산폼.txt1.value+='5'">
+        <input type="button" value="6" class="num"onclick="document.계산폼.txt1.value+='6'">
+        <input type="button" value="-" id="oper"onclick="document.계산폼.txt1.value+='-'">
+        <input type="button" value="7" class="num"onclick="document.계산폼.txt1.value+='7'">
+        <input type="button" value="8" class="num"onclick="document.계산폼.txt1.value+='8'">
+        <input type="button" value="9" class="num"onclick="document.계산폼.txt1.value+='9'">
+        <input type="button" value="=" id="sum1"onclick="document.계산폼.txt1.value=eval(document.계산폼.txt1.value)">
+        <input type="button" value="/" id="oper"onclick="document.계산폼.txt1.value+='/'">
+        <input type="button" value="0" class="num"onclick="document.계산폼.txt1.value+='0'">
+        <input type="button" value="*" id="oper"onclick="document.계산폼.txt1.value+='*'">
+    </form>
+
+</body>
+</html>

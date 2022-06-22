@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>적정몸무게 여부 구현</title>
+</head>
+<body>
+    <input type="text" placeholder="체중을 입력하세요" id="kg">
+    <input type="text" placeholder="키를 입력하세요" id="cm">
+    <button onclick="평가()">입력</button>
+
+    <script>
+        function 평가(){
+            const weight = document.querySelector('#kg');
+            const tall = document.querySelector('#cm');
+            const cal = tall.value - 105 ;
+            const weightCalMin = parseInt(weight.value) * 0.9;
+            const weightCalMax = parseInt(weight.value) * 1.1;
+            if(cal>=weightCalMin && cal<=weightCalMax) {
+                alert('적정체중입니다')
+            }else{
+                alert('적정체중이 아닙니다')
+            };
+
+        }
+    </script>
+    
+</body>
+</html>

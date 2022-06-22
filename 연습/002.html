@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상조절구현</title>
+    <style>
+        #page{
+            width: 900px;
+            
+        }
+
+        #canvas{
+            width:500px;
+            height:400px;
+        }
+        input{
+            width:70%;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div id=canvas></div>
+    <input type="range"  min=0 max= 255 id="blue111" onchange="changeColor()">
+    <span id="blueSpan"></span>
+    </div>
+
+<script>
+    function changeColor(){
+        const canvas=document.querySelector('#canvas');
+        const blueSpan=document.querySelector('#blueSpan');
+        const blue111=document.querySelector('#blue111');
+        const blue = parseInt(blue111)
+    }
+</script>
+</body>
+</html>
