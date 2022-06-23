@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <!-- Bootstrap framework - css / js -->
+    <!-- 한마디로 정리하면 웹사이트 개발 프레임워크다.
+        그렇다면 프레임워크란 뭘까?
+        프레임워크는 영어로는 FrameWork로
+        한국어로 쉽게 도우미라고 생각하면 된다.
+        즉, 부트스트랩은 HTML, CSS, JS 도우미다.-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+          
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <title>날씨앱 3단계 함수</title>
+</head>
+<body>
+<div id="app">
+    <div id="weatherInfo">
+        <div id="name"></div>
+        <div id="temp"></div>
+        <div id="cloud"></div>
+    </div>
+</div>
+
+<div id="buttons"></div>
+
+    <script>
+        const key = '4e96bbe63437be4054581d930fdd2021';
+        const cities= [ {name:'도쿄', code:'Tokyo'},{name:'하노이', code:'Hanoi'},{name:'방콕', code:'Bangkok'},{name:'인천', code:'Incheon'}]
+        let cno = 0;
+        let weather =null;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`;
+
+        function init(){
+            $buttons=$('#buttons');
+            //성공하면 forEach로 바꿔서 써보기 
+            //forEach(cities,i)
+         for(i=0; i<cities.length; i++){
+             $('<button class="btn btn-primary">').attr('data-no',i).text(cities[i].name).appendTo($buttons)
+         }
+        }
+
+        async function getPosition(city, key, url){  
+            //요청 파라미터:`?q=도시이름&appid=API키`;
+            //$.ajax는 요청파라미터를 객체로 만들어놓으면 자동으로 urlencoded변환
+            const param = {q:city, appid:key};
+            const result = await $.ajax({url:url, data:param});
+            console.log(result);
+        }
+
+
+
+        $(document).ready(function(){
+
+            init();
+            getPosition();
+
+
+            $('button').click(function(){
+           cno=parseInt($(this).attr('data-cno'));
+           url = `https://api.openweathermap.org/data/2.5/weather?q=${cities[cno].code}&appid=${key}&units=metric`
+            getPosition();
+            }
+
+            )
+            
+        })
+     
+
+    
+    
+    
+    </script>
+</body>
+</html>

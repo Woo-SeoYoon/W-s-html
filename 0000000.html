@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+        const cities= [ {name:'도쿄', code:'Tokyo'},{name:'하노이', code:'Hanoi'},{name:'방콕', code:'Bangkok'},{name:'인천', code:'Incheon'}]
+        let cno = 0;
+
+
+        function init(){
+             const $buttonDiv = $('#buttonDiv');
+        
+            for(let i=0; i<cities.length; i++){ // forEach문 대체가능; (for문 & for of 반복문 합친거)  forEach(city,i) 
+                $('<button class="btn btn-primary">').attr('data-cno',i).text(cities[i].name).appendTo($buttonDiv);
+            }
+            }
+        
+       
+            async function getPosition(city, limit, key,pUrl) {
+            const result= await $.ajax({
+                url:pUrl,
+                data:{q:city, limit:limit, appid:key},
+                method:'get',
+                processData:true
+            });
+            console.log(result);
+            return{위도:result[0].lat, 경도:result[0].lon};
+        }
+
+
+        $(document).ready(async function(){
+
+            const limit =1;
+            const city=cities[cno].code;
+            const key='4e96bbe63437be4054581d930fdd2021';
+            const pUrl= `http://api.openweathermap.org/geo/1.0/direct`
+
+
+            const position = await getPosition(cities[cno].code,limit,key,pUrl);
+            console.log(position);
+            await getPosition(cities[cno].code,limit,key,pUrl);
+            $('button').click(async function(){
+                cno= parseInt($(this).attr('data-cno'));
+
+            })
+            $('button').click(function(){
+             console.log($(this).attr("data-no"));
+            })
+
+
+
+
+
+
+
+        })
+    </script>
+
+    <div id="cityPosition"></div>
+    <div id="buttonDiv"></div>
+</body>
+</html>
+
