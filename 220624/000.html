@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+<script>
+    const key = 'ac7bd84b82bde1e5e29c4da01645c10e';
+    const cities = [
+            { name:'인천', code:'Incheon'},
+            { name:'서울', code:'Seoul'},
+            { name:'부산', code:'Busan'},
+            { name:'대구', code:'Daegu'},
+            { name:'광주', code:'Gwangju'}
+    ]
+
+    function init(){
+        const $buttons = $('#buttons');
+        for(let i =0; i<cities.length; i++){
+            $('<button class="btn btn-primary">').attr('data-cno',i).text(cities[i].name).appendTo($buttons)
+        }
+     }
+
+     async function getData(cno){
+        const positionUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cities[cno].code}&limit=5&appid=${key}`;
+        const position = await $.ajax(positionUrl);
+        const 위도 = position[0].lat;
+        const 경도 = position[0].lon;
+
+        const airUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${위도}&lon=${경도}&appid=${key}`;
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${위도}&lon=${경도}&exclude=hourly,minutely&appid=${key}&units=metric`;
+
+        return{위도,경도}
+       
+     }
+
+     function printData(cno,{위도,경도}){
+         $('#city').text(`${cities[cno].name} (위도: ${위도},경도:${경도})`);
+     }
+
+     async function work(cno){
+         const data = await getData(cno);
+         printData(cno,data);
+     }
+
+    
+
+        $(document).ready(function(){
+        let cno=0;
+
+        init();
+        work(cno);
+
+        $('#buttons button').click(function(){
+            cno=parseInt($(this).attr('data-cno'));
+            work(cno);
+        })
+
+        })
+
+
+
+</script>
+
+    <div id="app">
+        <h1 class="center"> Weather App</h1>
+        <hr>
+        <div id="buttons" class="btn-Group"></div>
+        <div id="city" class=" bold center blue"></div>
+        <div id="view">
+            <div id="left">
+                <div id="cloud">
+                    <div id="icon" class="larger"></div>
+                    <div id="percent" ></div>
+                </div>
+                <div id="temp"></div>
+                <div id="uvi"></div>
+            </div>
+                <div id="right">
+
+                    <table>
+                            <tr>
+                                <td>최고온도</td><td id="max" class="bold"></td>
+                                <td>최저온도</td><td id="min" class="bold"></td>
+                                <td>체감온도</td><td id="feel" class="bold"></td>
+                                <td>습도</td><td id="humidity" class="bold"></td>
+                            </tr>
+
+                            <tr>
+                                <td>일출</td><td id="max" class="bold"></td>
+                                <td>일몰</td><td id="min" class="bold"></td>
+                                <td>미세</td><td id="feel" class="bold"></td>
+                                <td>초미세</td><td id="humidity" class="bold"></td>
+                            </tr>
+
+                    </table>
+                </div>
+        </div>
+
+        <div>
+            <table style="width:100%;">
+            <tr id="forecast"></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

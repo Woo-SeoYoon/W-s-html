@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list만들기</title>
+</head>
+<body>
+    <script>
+    const printTodos=()=>{
+        const $ul = $('#todos');
+        $ul.empty();
+        //todos.forEach is not a function
+        todos.forEach(todo=>console.log(todo));
+
+    }
+
+    $(documnet).ready(()=>{
+        const todos = [
+        { title : "영화보기", done:false},
+        { title : "주말 산책", done:true},
+        { title : "ES 6 학습", done:false},
+        { title : "잠실 야구장", done:false},
+        
+        ];
+
+
+    })
+</script>
+</body>
+</html>

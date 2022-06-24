@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+     const key = "ac7bd84b82bde1e5e29c4da01645c10e";
+
+     const cities = [
+          { name:'인천', code:'Incheon'},
+          { name:'파리', code:'Paris'},
+          { name:'뉴욕', code:'Newyork'},
+          { name:'제주', code:'Jeju'},
+          { name:'광주', code:'Gwangju'}
+        ];
+        function init() {
+            const $buttons = $('#buttons');
+            for(let i=0; i<cities.length; i++){
+                $('<button class="btn btn-primary">').attr('data-cno',i).text(cities[i].name).appendTo($buttons);            
+                }
+        }
+
+        async function getData(cno){
+            const positionUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cities[cno].code}&limit=5&appid=${key}`;
+            const position= await $.ajax(positionUrl);
+            const 위도 = position[0].lat;
+            const 경도 = position[0].lon;
+
+            return {위도,경도};
+        }
+
+        function printData(cno,{위도,경도}){
+            $('#city').text(`${cities[cno].name} (위도:${위도}, 경도:${경도})`);
+            
+        }
+
+        async function work(cno){
+            const data = await getData(cno);
+            printData(cno,data);
+
+        }
+
+
+
+
+        $(document).ready(function(){
+            let cno=0;
+            init();
+            work(cno);
+
+            $('#buttons button').click(function(){
+                cno= parseInt($(this).attr('data-cno'));
+                work(cno);
+
+            })
+        })
+
+    </script>
+    
+    <div id="buttons">
+
+    </div>
+    <div id="city"></div>
+</body>
+</html>
