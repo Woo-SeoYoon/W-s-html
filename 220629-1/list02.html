@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리스트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+    <script>
+        // list.html에서 3페이지로 이동하면 list.html
+        // REST는 화면에서 데이터를 저장할 수 있다. 이동하면 모든 것은 처음부터 
+        // list.html?page=3 형식으로 페이지번호를 읽어오자
+        // list.html로 실행하면 빈문자열-> page는 1로 하자
+        function getPage(page){
+        let pageno =  parseInt(location.search.substr(6));
+        if(isNaN(page)== true)
+            return 1;
+            return page;
+        }
+        
+        const getPagination = ({pageno,pagesize, totalcount,blocksize=5})=>{
+          
+          let countOfPage = Math.ceil(totalcount/pagesize);
+          let prev = Math.floor((pageno-1)/blocksize)*blocksize;
+          let start = prev + 1;
+          let end = prev + blocksize;
+          let next = end + 1;
+          if(end>=countOfPage){
+                  end = countOfPage;
+                  next = 0;
+          }
+          return {pageno, prev, start, end, next };
+        }
+
+        async function getResponse(api,pageno,pagesize) {
+            const params = {pageno, pagesize};
+            return await $.ajax({ url: api, data: params })
+        }
+        //$.ajax 는 비동기작업 (동시작업) 인데 순서를 정해야할때 키워드 "await"
+
+        function printContacts({contacts}) {
+        const $list = $('#list');
+            for(c of contacts){
+                const $tr = $('<tr>').appendTo($list)
+                $('<td>').text(c.no).appendTo($tr)
+                const $td = $('<td>').appendTo($tr)
+                $('<a>').attr('href',`/read.html?no=${c.no}`).text(c.name).appendTo($tr)
+                $('<td>').text(c.address).appendTo($tr)
+                $('<td>').text(c.tel).appendTo($tr)
+
+            }
+        }
+       
+
+        function printPagination({pageno,prev,start,end,next}){
+            const $p = $('#pagination');
+            //<li class='page-item'><a href='#' class='page-link'>1</a></li>
+            //prev start~end next
+            if(prev>0){
+                const $li = $("<li class='page-item'>").appendTo($p);
+                $(`<a href = '/list.html?pageno=${prev}' class='page-link'>`).text('prev').appendTo($li)
+                if(i===pageno)
+                    $li.addClass('active');
+                }
+
+            for(let i=0; i<=end; i++){
+                const $li = $("<li class='page-item'>").appendTo($p);
+                $(`<a href = '/list.html?pageno=${i}' class='page-link'>`).text('i').appendTo($li)    
+            }
+
+            if(next>0){
+                const $li = $("<li class='page-item'>").appendTo($p);
+                $(`<a href = '/list.html?pageno=${next}' class='page-link'>`).text('next').appendTo($li)
+            }
+
+        }
+
+
+        $(document).ready(async function(){
+            const pagesize = 10;
+            const api = 'http://sample.bmaster.kro.kr/contacts';
+            const page = getPage();
+            const response = await getResponse(api, page, pagesize);
+            console.log(response)
+            printContacts(response);
+            const pagination = getPagination(response);
+            printPagination(pagination);
+        })
+    </script>
+        <div id="app">
+            <table>
+                <thead id="list">
+                    <tr><td>번호</td><td>이름</td><td>주소</td><td>연락처</td></tr>
+                </thead>
+            </table>
+        </div>
+</body>
+</html>

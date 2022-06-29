@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+function printPagination({pageno,prev,start,end,next}){
+    const $p = $('#pagination');
+    //<li class='page-item'><a href='#' class='page-link'>1</a></li>
+    //prev start~end next
+    if(prev>0){
+        const $li = $("(li class='page-item'>").appendTo($p);
+        $(`<a href = '/list.html?pageno=${prev}' class='page-link'>`).text('prev').appendTo($li)
+    }
+    if(next>0){
+        const $li = $("(li class='page-item'>").appendTo($p);
+        $(`<a href = '/list.html?pageno=${next}' class='page-link'>`).text('next').appendTo($li)
+    }
+
+}
+</script>
+<body>
+
+</body>
+</html>

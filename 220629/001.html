@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function get소득세(소득금액,세율){
+            return 소득금액 * 세율;
+
+        }
+        const obj = {
+            소득금액 : 7000000,
+            세율 : 0.0333,
+            소득세 : 0,
+            get소득세: function(){
+                this.소득세 = this.소득금액 + this.세율;
+            }
+        }
+    </script>
+</body>
+</html>

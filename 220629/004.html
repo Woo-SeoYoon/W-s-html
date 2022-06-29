@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요청과 응답</title>
+</head>
+<body>
+    <!--폼을 직접 보내지 않고 js로 검증후 submit-->
+    <script>
+        $('#login').click(function(){
+
+            $('#loginForm').submit();
+        })
+        //폼을 이용해 ajax를 보낸다면
+        $('#login').click(function(){
+          const response = await $.ajax({
+                url: '서버주소',
+                //data의 기본형식: aaa=bbb&ccc=ddd
+                data: $('#loginForm').serialize()
+            })
+            alert(`당신의 아이디는 ${response.username} 입니다.`);
+        })
+    </script>
+
+    <form id="logrinForm" action="http://www.naver.com" method="get"  enctype="application/x-www-form-urlencoded">
+        <input type="file" name="profile">
+        <input type="text" id="username" value="spring" name="username">
+        <input type="text" id="password" value="1234" name="password">
+        <button type="button">로그인</button>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요청과 응답</title>
+</head>
+<body>
+    <!--
+        요청
+        서버주소,메소드,형식,데이터들
+        -mvc:form =>js로 선택후 submit()
+        <form action="" method="" enctype="">
+        </form>
+        -rest:form이 있다면 선택 후 serealize(), 없다면 js객체를 만든다
+            $ajax(`주소?bno=${bno}$pageno=${pageno}=${pageno}&pagesize=$(pagesize)`)
+        
+            const params = {
+
+            }
+            $.ajax({
+                url:,
+                data:,
+                method:''
+            })
+    -->
+    <!--js로 폼을 만들던지 아니면 js객체를 만든다-->
+    <!--필수요소: 주소,넘길값,메소드방식-->
+    <script>
+        const bno = 111;
+        $('#good').click(function(){
+            const response = await $.ajax(`/board/good?bno=${bno}`);
+        });
+        $('#update').click(function(){
+            const params = {
+                bno:bno,
+                title:$('#title').val(),
+                content:$('#content').val()
+            };
+        })
+        const response = await $.ajax({
+            url:'/board/update',
+            data:params,
+            method:'put'
+        })
+    </script>
+
+<button id="good" data-no="111">추천</button>
+<button id="good" data-no="111">비추</button>
+<hr>
+<input type="text" id="title" value="제목입니다">
+<textarea  id="content" >글의 본문입니다</textarea>
+<hr>
+<button>변경</button>
+<button>삭제</button>
+</body>
+</html>
